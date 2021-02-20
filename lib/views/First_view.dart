@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import '../custom_dialog.dart';
+import '../widget/custom_dialog.dart';
 
 //FIRST VIEW BEFORE SIGN IN
 class FirstView extends StatelessWidget {

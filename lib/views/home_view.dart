@@ -97,38 +97,48 @@ class _HomePageState extends State<HomePage> {
                 new Container(
 
                   child: RaisedButton(
-                      child: Icon(Icons.fastfood, size: 80),
-
+                      child:Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Icon(Icons.fastfood, size: 80),
+                          Text('Food', style: TextStyle(fontSize: 20)),
+                        ],),
                       color: Colors.deepPurple[100],
-
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => FoodRoute()),
                         );
                       }
-
                   ),
                 ),
                 new Container(
 
                   child: RaisedButton(
-                      child: Icon(Icons.home, size: 80),
+                      child:Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Icon(Icons.home, size: 80),
+                          Text('Housing', style: TextStyle(fontSize: 20)),
+                        ],),
                       color: Colors.deepPurple[200],
-
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => HousingRoute ()),
                         );
                       }
-
                   ),
                 ),
                 new Container(
 
                   child: RaisedButton(
-                      child: Icon(Icons.healing, size: 80),
+                      child:Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Icon(Icons.healing, size: 80),
+                          Text('Health', style: TextStyle(fontSize: 20)),
+                        ],),
                       color: Colors.deepPurple[200],
                       onPressed: () {
                         Navigator.push(
@@ -142,7 +152,12 @@ class _HomePageState extends State<HomePage> {
                 new Container(
 
                   child: RaisedButton(
-                      child: Icon(Icons.account_balance_wallet, size: 80),
+                      child:Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Icon(Icons.account_balance_wallet, size: 80),
+                          Text('Saving', style: TextStyle(fontSize: 20)),
+                        ],),
                       color: Colors.deepPurple[100],
                       onPressed: () {
                         Navigator.push(
@@ -155,7 +170,12 @@ class _HomePageState extends State<HomePage> {
                 new Container(
 
                   child: RaisedButton(
-                      child: Icon(Icons.shopping_cart, size: 80),
+                      child:Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Icon(Icons.shopping_cart, size: 80),
+                          Text('Discretionary Expenses',textAlign: TextAlign.center, style: TextStyle(fontSize: 20)),
+                        ],),
                       color: Colors.deepPurple[100],
                       onPressed: () {
                         Navigator.push(
@@ -168,7 +188,12 @@ class _HomePageState extends State<HomePage> {
                 new Container(
 
                   child: RaisedButton(
-                      child: Icon(Icons.directions_car, size: 80),
+                      child:Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Icon(Icons.directions_car, size: 80),
+                          Text('Transport', style: TextStyle(fontSize: 20)),
+                        ],),
                       color: Colors.deepPurple[200],
                       onPressed: () {
                         Navigator.push(
@@ -176,13 +201,17 @@ class _HomePageState extends State<HomePage> {
                           MaterialPageRoute(builder: (context) => TransportRoute()),
                         );
                       }
-
                   ),
                 ),
                 new Container(
 
                   child: RaisedButton(
-                      child: Icon(Icons.build, size: 80),
+                      child:Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Icon(Icons.build, size: 80),
+                          Text('Utilities', style: TextStyle(fontSize: 20)),
+                        ],),
                       color: Colors.deepPurple[200],
                       onPressed: () {
                         Navigator.push(
@@ -190,13 +219,17 @@ class _HomePageState extends State<HomePage> {
                           MaterialPageRoute(builder: (context) => UtilitiesRoute()),
                         );
                       }
-
                   ),
                 ),
                 new Container(
 
                   child: RaisedButton(
-                      child: Icon(Icons.lightbulb_outline, size: 80),
+                      child:Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Icon(Icons.lightbulb_outline, size: 80),
+                          Text('Personal Care',textAlign: TextAlign.center, style: TextStyle(fontSize: 20)),
+                        ],),
                       color: Colors.deepPurple[100],
                       onPressed: () {
                         Navigator.push(
@@ -204,13 +237,17 @@ class _HomePageState extends State<HomePage> {
                           MaterialPageRoute(builder: (context) => PersonalCareRoute()),
                         );
                       }
-
                   ),
                 ),
                 new Container(
 
                   child: RaisedButton(
-                      child: Icon(Icons.people_outline, size: 80),
+                      child:Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Icon(Icons.people_outline, size: 80),
+                          Text('Social Participation',textAlign: TextAlign.center, style: TextStyle(fontSize: 20)),
+                        ],),
                       color: Colors.deepPurple[100],
                       onPressed: () {
                         Navigator.push(
@@ -223,7 +260,12 @@ class _HomePageState extends State<HomePage> {
                 new Container(
 
                   child: RaisedButton(
-                      child: Icon(Icons.monetization_on, size: 80),
+                      child:Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Icon(Icons.monetization_on, size: 80),
+                          Text('Ad Hoc/One-off ',textAlign: TextAlign.center, style: TextStyle(fontSize: 20)),
+                        ],),
                       color: Colors.deepPurple[200],
                       onPressed: () {
                         Navigator.push(
@@ -251,7 +293,7 @@ class _HomePageState extends State<HomePage> {
       },
     );
     Widget noButton = FlatButton(
-      child: Text("No"),
+      child: Text("No", style: TextStyle(color: Colors.red[500]),),
       onPressed:  () {
         Navigator.pop(context);
         showAlertDialog2(context);
@@ -284,6 +326,7 @@ class _HomePageState extends State<HomePage> {
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text("You have consented to receive the notification about spending and the reward entitlement"),
+      backgroundColor: Colors.blue[300],
     );
 
     // show the dialog
@@ -300,6 +343,7 @@ showAlertDialog2 (BuildContext context){
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
     title: Text("You will not receive any notifications regarding update spending and reward entitlement"),
+    backgroundColor: Colors.red[200],
   );
 
   // show the dialog

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
-import '../models/providerWidget.dart';
+import '../widget/providerWidget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 

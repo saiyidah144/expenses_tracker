@@ -2,7 +2,7 @@ import 'package:expenses_tracker/views/First_view.dart';
 import 'package:expenses_tracker/views/sign_up_View.dart';
 import 'package:flutter/material.dart';
 import 'services/auth_service.dart';
-import 'models/providerWidget.dart';
+import 'widget/providerWidget.dart';
 import 'views/navigation_view.dart';
 
 //MAIN PAGE

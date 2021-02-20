@@ -97,7 +97,6 @@ class _RewardViewState extends State<RewardView> {
                     padding: const EdgeInsets.all(15),
                     child: new Column(
                       children: <Widget>[
-                        Text('Welcome, ', style: TextStyle(fontSize: 40, ),),
                         Text('You can unlock the lock by fulfilling the whole month spending'),
                       ],
                     ),
@@ -296,7 +295,7 @@ class _RewardViewState extends State<RewardView> {
     // set up the buttons
 
     Widget closeButton = FlatButton(
-      child: Text("Close"),
+      child: Text("Close", style: TextStyle(color: Colors.black),),
       onPressed:  () {
         Navigator.of(context).pop();
       },
@@ -304,8 +303,9 @@ class _RewardViewState extends State<RewardView> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("AlertDialog"),
-      content: Text("Your code is 8UT5iHY" ),
+      title: Text("CONGRATULATIONS! "),
+      content: Text("Your code is 8UT5iHY" , style: TextStyle(fontSize: 20),),
+      backgroundColor: Colors.green[300],
       actions: [
         closeButton,
       ],
@@ -325,8 +325,9 @@ class _RewardViewState extends State<RewardView> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("3 MORE TO GO"),
+      title: Text("3 MORE TO GO", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
       content: Text("You can get the reward code after unlock all the lock" ),
+      backgroundColor: Colors.green[300],
     );
 
     // show the dialog
@@ -344,8 +345,9 @@ class _RewardViewState extends State<RewardView> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("GRAB THE CHANCE TO GET THE REWARD NOW"),
-      content: Text("You have to unlock all 5 lock to get the chance to GRAB the REWARD" ),
+      title: Text("GRAB THE CHANCE TO GET THE REWARD NOW", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
+      content: Text("You have to unlock all 5 lock to get the chance to GRAB the REWARD"),
+      backgroundColor: Colors.green[200],
 
     );
 

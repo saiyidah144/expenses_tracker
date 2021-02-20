@@ -83,7 +83,7 @@ showAlertDialog(context);
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text("Please UPDATE your spending before 15th of next month to get the chance to GRAB the REWARD !"),
-
+backgroundColor: Colors.orange[300],
     );
 
     // show the dialog

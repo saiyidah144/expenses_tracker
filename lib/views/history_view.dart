@@ -23,7 +23,7 @@ class _HistoryPageState extends State<HistoryPage> {
   TextEditingController _expenseController = new TextEditingController();
   TextEditingController _budgetController = new TextEditingController();
 
- 
+
   Future displayDateRangePicker (BuildContext context) async {
     final DateTime picked = await showDatePicker(
         context: context,

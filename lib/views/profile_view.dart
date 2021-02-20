@@ -1,7 +1,7 @@
 import 'package:expenses_tracker/views/add_profile.dart';
 import 'package:expenses_tracker/views/detailed_profile_view.dart';
 import 'package:flutter/material.dart';
-import '../models/providerWidget.dart';
+import '../widget/providerWidget.dart';
 
 
 // TO VIEW THE USER PROFILE PAGE, AND ADD/UPDATE USER DATA, AND SIGN OUT
