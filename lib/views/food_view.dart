@@ -37,10 +37,20 @@ class _FoodRouteState extends State<FoodRoute> {
   }
   Future displayDateRangePicker (BuildContext context) async {
     final DateTime picked = await showDatePicker(
-        context: context,
-        initialDate: _dateTime,
-        firstDate: new DateTime(2015),
-        lastDate: new DateTime(2026));
+      context: context,
+      initialDate: _dateTime,
+      firstDate: new DateTime(2015),
+      lastDate: new DateTime(2026) ,
+      builder: (BuildContext context, Widget child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            colorScheme: ColorScheme.light().copyWith(
+              primary: Colors.purple,
+            ),
+          ),
+          child: child,
+        );
+      },);
     if (picked !=null && picked != _dateTime ){
       setState(() {
         _dateTime = picked;
@@ -105,11 +115,12 @@ class _FoodRouteState extends State<FoodRoute> {
               ),
               const SizedBox(height: 30.0),
               RaisedButton(
-                child: Text("Select Date"),
-                onPressed: () async {
-                  await displayDateRangePicker(context);
-                },),
-              Text("Date : ${DateFormat('MM/dd/yyyy').format(_dateTime).toString()}"),
+                  color: Colors.white24,
+                  child: Text("Select Date",style :TextStyle(color: Colors.black, fontSize:20.0)),
+                  onPressed: () async {
+                    await displayDateRangePicker(context);
+                  }),
+              Text("Date : ${DateFormat('MM/dd/yyyy').format(_dateTime).toString()}",style :TextStyle(color: Colors.black, fontSize:20.0)),
               const SizedBox(height: 30.0),
 
               new Center(child:RaisedButton(
@@ -121,7 +132,7 @@ class _FoodRouteState extends State<FoodRoute> {
                 padding: const EdgeInsets.all(15.0),
                 color: Colors.green,
                 textColor: Colors.white,
-                child: Text("Save", style: new TextStyle(fontSize: 20.0, color: Colors.white),),
+                child: Text("Save", style: new TextStyle(fontSize: 25.0, color: Colors.white),),
 
                 onPressed: () async {
                   if (_key.currentState.validate()) {
@@ -149,6 +160,9 @@ class _FoodRouteState extends State<FoodRoute> {
   }
 
 }
+
+
+
 
 
 

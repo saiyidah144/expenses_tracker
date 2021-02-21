@@ -16,7 +16,7 @@ class RewardView extends StatefulWidget {
 }
 
 class _RewardViewState extends State<RewardView> {
-  final primaryColor = const Color(0xFFCE93D8);
+  final primaryColor = const Color(0xFF8E24AA);
   final db = Firestore.instance;
   Reward reward;
   Category category;
@@ -88,6 +88,7 @@ class _RewardViewState extends State<RewardView> {
             })
 ],
         ),
+
         body: SingleChildScrollView(
           child: Column(
               children: <Widget>[
@@ -97,7 +98,9 @@ class _RewardViewState extends State<RewardView> {
                     padding: const EdgeInsets.all(15),
                     child: new Column(
                       children: <Widget>[
-                        Text('You can unlock the lock by fulfilling the whole month spending'),
+                        Text('You can unlock the lock by fulfilling the whole month spending', style: TextStyle(
+                          fontSize: 20
+                        ),),
                       ],
                     ),
                   ),

@@ -26,23 +26,32 @@ class _HistoryPageState extends State<HistoryPage> {
 
   Future displayDateRangePicker (BuildContext context) async {
     final DateTime picked = await showDatePicker(
-        context: context,
-        initialDate: _dateTime,
-        firstDate: new DateTime(2015),
-        lastDate: new DateTime(2026));
+      context: context,
+      initialDate: _dateTime,
+      firstDate: new DateTime(2015),
+      lastDate: new DateTime(2026) ,
+      builder: (BuildContext context, Widget child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            colorScheme: ColorScheme.light().copyWith(
+              primary: Colors.purple,
+            ),
+          ),
+          child: child,
+        );
+      },);
     if (picked !=null && picked != _dateTime ){
       setState(() {
         _dateTime = picked;
       });
     }
   }
-
   createAlertDialog (BuildContext context, DocumentSnapshot document){
     final category = Category.fromSnapshot(document);
 
     return showDialog(context: context, builder: (context){
       return  AlertDialog(
-        title: Text("Edit Expense"),
+        title: Text("Edit Expense",style :TextStyle(color: Colors.black, fontSize:25.0)),
         content:  new SingleChildScrollView(
           child: Form(
             key: _key,
@@ -52,7 +61,7 @@ class _HistoryPageState extends State<HistoryPage> {
                 TextFormField(
                   validator: (value) {
                     if (value == null || value.isEmpty)
-                      return "Budget field cannot be empty";
+                      return "Expenses field cannot be empty";
                     return null;
                   },
                   controller: _expenseController,
@@ -67,7 +76,7 @@ class _HistoryPageState extends State<HistoryPage> {
                     WhitelistingTextInputFormatter.digitsOnly,
                   ],
                 ),
-
+                const SizedBox(height: 30.0),
                 TextFormField(
                   validator: (value) {
                     if (value == null || value.isEmpty)
@@ -87,12 +96,16 @@ class _HistoryPageState extends State<HistoryPage> {
                     WhitelistingTextInputFormatter.digitsOnly,
                   ],
                 ),
+                const SizedBox(height: 30.0),
                 RaisedButton(
-                  child: Text("Select Date"),
-                  onPressed: () async {
-                    await displayDateRangePicker(context);
-                  },),
-                Text("Date : ${DateFormat('MM/dd/yyyy').format(_dateTime).toString()}"),
+                    color: Colors.white24,
+                    child: Text("Select Date",style :TextStyle(color: Colors.black, fontSize:20.0)),
+                    onPressed: () async {
+                      await displayDateRangePicker(context);
+                    }),
+                Text("Date : ${DateFormat('dd/MM/yyyy').format(_dateTime).toString()}",style :TextStyle(color: Colors.black, fontSize:20.0)),
+                const SizedBox(height: 30.0),
+
               ],
             ),
           ),
@@ -101,24 +114,24 @@ class _HistoryPageState extends State<HistoryPage> {
 
         actions: <Widget>[
           FlatButton(
-              child: Text("Update"),
+              child: Text("Update",style :TextStyle( fontSize:20.0)),
               onPressed: () async {
-                  if (_key.currentState.validate()) {
-                    try {
-                      Category categories = Category(
-                        expenses: double.parse(_expenseController.text),
-                        budget: double.parse(_budgetController.text),
-                        date: _dateTime,
-                        type: category.type,
-                        id: category.id,
-                      );
-                      await FirestoreService().updateData(categories);
-                      Navigator.pop(context);
-                    } catch (e) {
-                      print(e);
-                    }
-
+                if (_key.currentState.validate()) {
+                  try {
+                    Category categories = Category(
+                      expenses: double.parse(_expenseController.text),
+                      budget: double.parse(_budgetController.text),
+                      date: _dateTime,
+                      type: category.type,
+                      id: category.id,
+                    );
+                    await FirestoreService().updateData(categories);
+                    Navigator.pop(context);
+                  } catch (e) {
+                    print(e);
                   }
+
+                }
               }),
 
         ],
@@ -142,16 +155,16 @@ class _HistoryPageState extends State<HistoryPage> {
         context: context,
         barrierDismissible: true,
         builder: (context) => AlertDialog(
-          content: Text("Are you sure you want to delete?"),
+          content: Text("Are you sure you want to delete?",style :TextStyle( fontSize:20.0)),
           actions: <Widget>[
             FlatButton(
               textColor: Colors.red,
-              child: Text("Delete"),
+              child: Text("Delete",style :TextStyle( fontSize:20.0)),
               onPressed: () => Navigator.pop(context,true),
             ),
             FlatButton(
               textColor: Colors.black,
-              child: Text("No"),
+              child: Text("No",style :TextStyle( fontSize:20.0)),
               onPressed: () => Navigator.pop(context,false),
             ),
           ],
@@ -205,7 +218,7 @@ class _HistoryPageState extends State<HistoryPage> {
                       child: Row(children: <Widget>[
                         Text(category.type,  style: new TextStyle(fontSize: 25.0, fontStyle: FontStyle.italic),),
                         Spacer(),
-                        IconButton(icon: Icon(Icons.delete),
+                        IconButton(icon: Icon(Icons.delete,color:Colors.red),
                             onPressed: (){
                               _deleteData(context, category.id);
                             })
@@ -216,7 +229,7 @@ class _HistoryPageState extends State<HistoryPage> {
                       child: Row(children: <Widget>[
                         Text("Date : ${DateFormat('d MMMM yyyy').format(category.date).toString()}",  style: new TextStyle(fontSize: 20.0),),
                         Spacer(),
-                        IconButton(icon: Icon(Icons.edit),
+                        IconButton(icon: Icon(Icons.edit,color:Colors.blue),
                             onPressed: (){
                               createAlertDialog(context, document);
                             })

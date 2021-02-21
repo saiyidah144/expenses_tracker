@@ -36,10 +36,20 @@ class _HealthRoute extends State< HealthRoute> {
   }
   Future displayDateRangePicker (BuildContext context) async {
     final DateTime picked = await showDatePicker(
-        context: context,
-        initialDate: _dateTime,
-        firstDate: new DateTime(2015),
-        lastDate: new DateTime(2026));
+      context: context,
+      initialDate: _dateTime,
+      firstDate: new DateTime(2015),
+      lastDate: new DateTime(2026) ,
+      builder: (BuildContext context, Widget child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            colorScheme: ColorScheme.light().copyWith(
+              primary: Colors.purple,
+            ),
+          ),
+          child: child,
+        );
+      },);
     if (picked !=null && picked != _dateTime ){
       setState(() {
         _dateTime = picked;
@@ -104,11 +114,12 @@ class _HealthRoute extends State< HealthRoute> {
               ),
               const SizedBox(height: 30.0),
               RaisedButton(
-                child: Text("Select Date"),
-                onPressed: () async {
-                  await displayDateRangePicker(context);
-                },),
-              Text("Date : ${DateFormat('MM/dd/yyyy').format(_dateTime).toString()}"),
+                  color: Colors.white24,
+                  child: Text("Select Date",style :TextStyle(color: Colors.black, fontSize:20.0)),
+                  onPressed: () async {
+                    await displayDateRangePicker(context);
+                  }),
+              Text("Date : ${DateFormat('MM/dd/yyyy').format(_dateTime).toString()}",style :TextStyle(color: Colors.black, fontSize:20.0)),
               const SizedBox(height: 30.0),
 
               new Center(child:RaisedButton(
@@ -148,4 +159,6 @@ class _HealthRoute extends State< HealthRoute> {
   }
 
 }
+
+
 

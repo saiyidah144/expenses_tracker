@@ -63,25 +63,28 @@ class _HomePageState extends State<HomePage> {
       SingleChildScrollView(
         child: Column(
           children: <Widget>[
-             ListTile(
+            ListTile(
               title: Column(
                 children: <Widget>[
                   Padding(padding: EdgeInsets.all(0),
-                  child: Row(
-                    children: <Widget>[
+                    child: Row(
+                      children: <Widget>[
 
-                      Text('Welcome,',style: TextStyle(fontSize: 30)),
-                      IconButton( icon: Icon(Icons.info_outline),
-                        onPressed: () {
-                        showAlertDialog(context);
-                        },
+                        Text('Welcome,',style: TextStyle(fontSize: 30)),
+                        IconButton( icon: Icon(Icons.info_outline),
+                          onPressed: () {
+                            showAlertDialog(context);
+                          },
                         ),
-                    ],
-                  ),)
+                        IconButton(icon: Icon(Icons.lightbulb_outline), onPressed: () {
+                          showAlertDialog3(context);
+                        }),
+                      ],
+                    ),)
 
                 ],
               ),
-              subtitle: Text('Click on each icon to choose categories to track your expenses',style: TextStyle(fontSize: 20)),
+              subtitle: Text('Lets start tracking your expenses by clicking on each icon',style: TextStyle(fontSize: 22)),
             ),
 
 
@@ -354,6 +357,25 @@ showAlertDialog2 (BuildContext context){
     },
   );
 }
+showAlertDialog3(BuildContext context) {
+  // set up the buttons
+
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text(
+        "Please UPDATE your spending before 15th of next month to get the chance to GRAB the REWARD !"),
+    backgroundColor: Colors.orange[300],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
 
 // ignore: must_be_immutable
 class NewScreen extends StatelessWidget {
@@ -372,5 +394,3 @@ class NewScreen extends StatelessWidget {
     );
   }
 }
-
-

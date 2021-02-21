@@ -15,7 +15,7 @@ class Home extends StatefulWidget{
 }
 
 class _HomeState extends State<Home> {
-  final primaryColor = const Color(0xFFCE93D8);
+  final primaryColor = const Color(0xFF8E24AA);
   int _currentIndex = 0;
   final List<Widget> _children = [
     HomePage(),
@@ -28,23 +28,19 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("EXPTracker"),
+        title: Text("Personal Expenditure App", style: TextStyle(fontSize: 25)),
         backgroundColor: primaryColor,
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.lightbulb_outline), onPressed: () {
-showAlertDialog(context);
-          }),
+          IconButton(icon: Icon(Icons.card_giftcard),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RewardView()));
+              }),
+
         ],
       ),
       body: _children[_currentIndex],
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.card_giftcard),
-        backgroundColor: primaryColor,
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => RewardView()));
-        },
-      ),
       bottomNavigationBar: BottomNavigationBar(
 
           onTap: onTabTapped,
@@ -52,48 +48,32 @@ showAlertDialog(context);
           items: [
             BottomNavigationBarItem(
               icon: new Icon(Icons.home),
-              title: new Text("Home"),
+              title: new Text("Home", style: new TextStyle(fontSize: 16.0),),
               backgroundColor: primaryColor,
             ),
             BottomNavigationBarItem(
               icon: new Icon(Icons.history),
-              title: new Text("History"),
+              title: new Text("History", style: new TextStyle(fontSize: 16.0),),
               backgroundColor: primaryColor,
             ),
             BottomNavigationBarItem(
               icon: new Icon(Icons.equalizer),
-              title: new Text("Statistics"),
+              title: new Text(
+                "Statistics", style: new TextStyle(fontSize: 16.0),),
               backgroundColor: primaryColor,
             ),
             BottomNavigationBarItem(
               icon: new Icon(Icons.account_circle),
-              title: new Text("Account"),
+              title: new Text("Account", style: new TextStyle(fontSize: 18.0),),
               backgroundColor: primaryColor,
             ),
           ]
       ),
     );
   }
-  showAlertDialog (BuildContext context){
-
-    // set up the buttons
 
 
 
-    // set up the AlertDialog
-    AlertDialog alert = AlertDialog(
-      title: Text("Please UPDATE your spending before 15th of next month to get the chance to GRAB the REWARD !"),
-backgroundColor: Colors.orange[300],
-    );
-
-    // show the dialog
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
-  }
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;

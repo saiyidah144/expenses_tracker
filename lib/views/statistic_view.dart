@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
-
 class StatisticsPage  extends StatefulWidget {
   @override
   _MyClassState createState() => _MyClassState();
@@ -180,5 +179,7 @@ class  Statistics {
 
   Statistics(this.category, this.spending);
 }
+
+
 
 

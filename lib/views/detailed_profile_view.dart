@@ -29,7 +29,7 @@ class _DetailedProfileViewState extends State<DetailedProfileView> {
   String _ethnicity;
   String _houseCategory;
 
-  final primaryColor = const Color(0xFFCE93D8);
+  final primaryColor = const Color(0xFF8E24AA);
 
   @override
   Widget build(BuildContext context) {
