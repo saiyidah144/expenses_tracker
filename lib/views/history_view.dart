@@ -180,7 +180,7 @@ class _HistoryPageState extends State<HistoryPage> {
         children: <Widget>[
           Expanded(
             child: StreamBuilder(
-                stream: Firestore.instance.collection('Category').orderBy("Date").snapshots(),
+                stream: Firestore.instance.collection('Category').orderBy("Date", descending: true).snapshots(),
                 builder: (context, snapshot) {
                   if(!snapshot.hasData ) return const Text("Loading...");
                   return new ListView.builder(
