@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
 
         ),
         home: HomeController(),
+        debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
           '/signUp': (BuildContext context) => SignUpView(authFormType: AuthFormType.signUp),
           '/signIn': (BuildContext context) => SignUpView(authFormType: AuthFormType.signIn),
