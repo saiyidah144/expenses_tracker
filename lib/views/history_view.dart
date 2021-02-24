@@ -236,6 +236,15 @@ class _HistoryPageState extends State<HistoryPage> {
                       ]),
                     ),
                     Padding(
+                      padding: const EdgeInsets.all(3),
+                      child: Row(
+                        children: <Widget>[
+                          Text("Expense", style: new TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic), ),
+                          Spacer(),
+                          Text("Budget", style: new TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
+                        ],
+                      ),),
+                    Padding(
                       padding: const EdgeInsets.all(2),
                       child: Row(
                         children: <Widget>[
@@ -243,7 +252,7 @@ class _HistoryPageState extends State<HistoryPage> {
                           Spacer(),
                           Text("\$RM${(category.budget == null)? "n/a" : category.budget.toStringAsFixed(2)}", style: new TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),),
                         ],
-                      ),)
+                      ),),
                   ]),
             ),
           ),
